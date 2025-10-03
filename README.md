@@ -43,7 +43,7 @@ Final state = **S2** → remainder = **2**.
 ## Project structure
 
 ```
-fsm/                          # project root (where go.mod lives)
+go-fsm/                       # project root (where go.mod lives)
 │
 ├── go.mod                    # module definition
 │
@@ -161,10 +161,10 @@ Located in fsm/fsm_test.go.
 2. Property test against an arithmetic reference (rem = (rem*2 + bit) % 3)
 
 Run:
-go test ./fsm -v
-
-go test -c ./fsm
-.\fsm.test.exe -test.v
+#### `go test ./fsm -v`
+or
+#### `go test -c ./fsm`
+#### `.\fsm.test.exe -test.v`
 
 
 ## Assumptions & Design Notes
