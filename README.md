@@ -66,9 +66,9 @@ Windows or any OS supported by Go
 
 From the project root:
 
-1.Initialize module
-# `go mod init fsm`
-# `go mod tidy`
+1. Initialize module
+### `go mod init fsm`
+### `go mod tidy`
 
 If you plan to push this to GitHub, use:
 go mod init github.com/<yourname>/fsm
@@ -76,22 +76,22 @@ and then change imports in cmd/modthree/main.go from
 import "fsm/fsm" → import "github.com/<yourname>/fsm/fsm"
 
 
-2.Run the CLI:
-# `go run ./cmd/modthree 1011`
+2. Run the CLI:
+### `go run ./cmd/modthree 1011`
 or
-# `go build ./cmd/modthree`
-# `.\modthree 1011`
+### `go build ./cmd/modthree`
+### `.\modthree 1011`
 
 Expected Output:
 Input: 1011
 Final state: 2
 Remainder (mod 3): 2
 
-3.Run Tests:
-# `go test ./fsm -v`
+3. Run Tests:
+### `go test ./fsm -v`
 or
-# `go test -c ./fsm`
-# `.\fsm.test.exe '-test.v'`
+### `go test -c ./fsm`
+### `.\fsm.test.exe '-test.v'`
 
 
 
@@ -163,13 +163,13 @@ go test -c ./fsm
 
 # Assumptions & Design Notes
 
-1.Deterministic FA (DFA) only (one next state per (q, symbol)).
-2.Generics: states and symbols must be comparable (OK: int, string, custom enums).
-3.Validation: NewDFA ensures:
+1. Deterministic FA (DFA) only (one next state per (q, symbol)).
+2. Generics: states and symbols must be comparable (OK: int, string, custom enums).
+3. Validation: NewDFA ensures:
     q0 ∈ Q, F ⊆ Q
     δ only references valid states/symbols
     If requireComplete = true: δ covers all (q, a)
-4.Separation of concerns:
+4. Separation of concerns:
     Library handles DFA structure & execution.
     Example app handles parsing strings (ignoring _, spaces, tabs) and mapping final state → remainder.
-5.Ergonomics: Row(...) helper makes δ concise; Must(...) is for quick demos (avoid in production APIs).
+5. Ergonomics: Row(...) helper makes δ concise; Must(...) is for quick demos (avoid in production APIs).
