@@ -155,8 +155,8 @@ Check cmd/modthree/main.go for a full, commented example.
 ### Tests
 
 Located in fsm/fsm_test.go.
-1.Unit vectors (sanity cases)
-2.Property test against an arithmetic reference (rem = (rem*2 + bit) % 3)
+1. Unit vectors (sanity cases)
+2. Property test against an arithmetic reference (rem = (rem*2 + bit) % 3)
 
 Run:
 go test ./fsm -v
