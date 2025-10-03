@@ -42,6 +42,7 @@ Final state = **S2** → remainder = **2**.
 
 ## Project structure
 
+```
 fsm/                          # project root (where go.mod lives)
 │
 ├── go.mod                    # module definition
@@ -55,6 +56,7 @@ fsm/                          # project root (where go.mod lives)
 │       └── main.go           # CLI that uses the library (mod-three)
 │
 └── README.md                 # docs
+```
 
 ## Requirements
 
