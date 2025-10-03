@@ -77,10 +77,10 @@ import "fsm/fsm" → import "github.com/<yourname>/fsm/fsm"
 
 
 2. Run the CLI:
-### `go run ./cmd/modthree 1011`
+#### `go run ./cmd/modthree 1011`
 or
-### `go build ./cmd/modthree`
-### `.\modthree 1011`
+#### `go build ./cmd/modthree`
+#### `.\modthree 1011`
 
 Expected Output:
 Input: 1011
@@ -88,10 +88,10 @@ Final state: 2
 Remainder (mod 3): 2
 
 3. Run Tests:
-### `go test ./fsm -v`
+#### `go test ./fsm -v`
 or
-### `go test -c ./fsm`
-### `.\fsm.test.exe '-test.v'`
+#### `go test -c ./fsm`
+#### `.\fsm.test.exe '-test.v'`
 
 
 
@@ -130,14 +130,14 @@ func Must[T any](v T, err error) T  // panics on err (handy for demos)
 
 ### Example: mod-three DFA
 
-Q = {S0, S1, S2}
-Σ = {'0', '1'}
-q₀ = S0
-F = all states (since we map final state → remainder)
-δ:
-δ(S0,0)=S0, δ(S0,1)=S1
-δ(S1,0)=S2, δ(S1,1)=S0
-δ(S2,0)=S1, δ(S2,1)=S2
+* Q = {S0, S1, S2}
+* Σ = {'0', '1'}
+* q₀ = S0
+* F = all states (since we map final state → remainder)
+* δ:
+  δ(S0,0)=S0, δ(S0,1)=S1
+  δ(S1,0)=S2, δ(S1,1)=S0
+  δ(S2,0)=S1, δ(S2,1)=S2
 
 Check cmd/modthree/main.go for a full, commented example.
 
