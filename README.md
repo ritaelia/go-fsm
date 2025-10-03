@@ -2,7 +2,7 @@
 # go-fsm
 A generic finite state machine (FSM) library in Go, with an example implementation of a modulo-3 automaton.
 
-# Finite State Machine (DFA) Library (Go)
+## Finite State Machine (DFA) Library (Go)
 
 This repo contains a small, reusable Deterministic Finite Automaton (DFA) library implemented in Go, plus an example application that computes the remainder of a binary number modulo 3 using a DFA (“mod-three”).
 
@@ -17,7 +17,7 @@ F: accepting/final states
 
 At a high level, a finite automaton starts in the initial state, processes a sequence of symbols one by one, and ends in a final state that determines whether the input is accepted or what value should be produced.
 
-## Example Walkthrough
+### Example Walkthrough
 
 Input: `"1011"` (binary for 11)
 
@@ -29,7 +29,7 @@ Input: `"1011"` (binary for 11)
 
 Final state = **S2** → remainder = **2**.
 
-## Mapping Theory to Code
+### Mapping Theory to Code
 
 * **States (Q):** represented as Go enums (`S0`, `S1`, `S2`)
 * **Alphabet (Σ):** represented as symbols (`Zero`, `One`)
@@ -40,7 +40,7 @@ Final state = **S2** → remainder = **2**.
 * **Run function:** iterates over input symbols, applying `Step` until the sequence is exhausted (`dfa.Run`)
 
 
-# Project structure
+## Project structure
 
 fsm/                          # project root (where go.mod lives)
 │
@@ -56,19 +56,19 @@ fsm/                          # project root (where go.mod lives)
 │
 └── README.md                 # docs
 
-# Requirements
+## Requirements
 
 Go 1.18+ (you’re on 1.18.2; generics are supported)
 Windows or any OS supported by Go
 
 
-# Quick start (Windows / PowerShell)
+## Quick start (Windows / PowerShell)
 
 From the project root:
 
 1. Initialize module
-### `go mod init fsm`
-### `go mod tidy`
+#### `go mod init fsm`
+#### `go mod tidy`
 
 If you plan to push this to GitHub, use:
 go mod init github.com/<yourname>/fsm
@@ -95,9 +95,10 @@ or
 
 
 
-# Library overview (API)
+## Library overview (API)
 
 ### Package: fsm
+
 type DFA[Q comparable, Sigma comparable] struct {
     Q     Set[Q]                        // States
     Sigma Set[Sigma]                    // Alphabet
@@ -128,6 +129,7 @@ func Must[T any](v T, err error) T  // panics on err (handy for demos)
 
 
 ### Example: mod-three DFA
+
 Q = {S0, S1, S2}
 Σ = {'0', '1'}
 q₀ = S0
@@ -140,6 +142,7 @@ F = all states (since we map final state → remainder)
 Check cmd/modthree/main.go for a full, commented example.
 
 ### Usage pattern
+
 Choose types for states and symbols (enums work great).
 Define states, alphabet, q0, finals.
 Build delta with fsm.Row(...).
@@ -161,7 +164,7 @@ go test -c ./fsm
 .\fsm.test.exe -test.v
 
 
-# Assumptions & Design Notes
+## Assumptions & Design Notes
 
 1. Deterministic FA (DFA) only (one next state per (q, symbol)).
 2. Generics: states and symbols must be comparable (OK: int, string, custom enums).
