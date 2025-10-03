@@ -99,6 +99,7 @@ or
 
 ### Package: fsm
 
+```go
 type DFA[Q comparable, Sigma comparable] struct {
     Q     Set[Q]                        // States
     Sigma Set[Sigma]                    // Alphabet
@@ -126,7 +127,7 @@ type TransitionFn[Q comparable, Sigma comparable] map[Q]map[Sigma]Q
 func Row[Q comparable, Sigma comparable](pairs ...struct{ On Sigma; Next Q }) map[Sigma]Q
 var ErrInvalidInput = errors.New("invalid input")
 func Must[T any](v T, err error) T  // panics on err (handy for demos)
-
+```
 
 ### Example: mod-three DFA
 
@@ -143,12 +144,12 @@ Check cmd/modthree/main.go for a full, commented example.
 
 ### Usage pattern
 
-Choose types for states and symbols (enums work great).
-Define states, alphabet, q0, finals.
-Build delta with fsm.Row(...).
-NewDFA(...) (optionally require a complete δ).
-Parse your input → []Sigma.
-Run to get the final state (and/or Accepts if using F to recognize a language).
+* Choose types for states and symbols (enums work great).
+* Define states, alphabet, q0, finals.
+* Build delta with fsm.Row(...).
+* NewDFA(...) (optionally require a complete δ).
+* Parse your input → []Sigma.
+* Run to get the final state (and/or Accepts if using F to recognize a language).
 
 
 ### Tests
