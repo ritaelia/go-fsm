@@ -9,11 +9,11 @@ This repo contains a small, reusable Deterministic Finite Automaton (DFA) librar
 The DFA follows the formal 5-tuple definition:
 (Q, Σ, q₀, F, δ) where
 
-Q: set of states
-Σ: input alphabet
-q₀: initial state
-F: accepting/final states
-δ: transition function Q × Σ → Q
+* Q: set of states
+* Σ: input alphabet
+* q₀: initial state
+* F: accepting/final states
+* δ: transition function Q × Σ → Q
 
 At a high level, a finite automaton starts in the initial state, processes a sequence of symbols one by one, and ends in a final state that determines whether the input is accepted or what value should be produced.
 
