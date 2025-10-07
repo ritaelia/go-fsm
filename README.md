@@ -60,7 +60,7 @@ go-fsm/                       # project root (where go.mod lives)
 
 ## Requirements
 
-Go 1.18+ (you’re on 1.18.2; generics are supported)
+Go 1.18+
 Windows or any OS supported by Go
 
 
